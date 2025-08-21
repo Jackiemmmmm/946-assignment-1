@@ -9,9 +9,7 @@ from sklearn.metrics import (
     calinski_harabasz_score,
 )
 from sklearn.decomposition import PCA
-import joblib
 import warnings
-from sklearn.preprocessing import StandardScaler
 
 warnings.filterwarnings("ignore")
 
@@ -22,8 +20,22 @@ def prepare_clustering_data(df, numeric_columns):
     """
     print("=== CLUSTERING DATA PREPARATION ===")
 
+    # Use passed numeric_columns parameter, with default fallback if None
+    if numeric_columns is None:
+        numeric_columns = ["current_price", "discount", "likes_count"]
+        print("Using default numeric columns (none specified)")
+    else:
+        print(f"Using specified numeric columns: {numeric_columns}")
+
     # Check which features are available in the dataframe
     available_features = [col for col in numeric_columns if col in df.columns]
+
+    if not available_features:
+        raise ValueError(
+            f"None of the specified columns {numeric_columns} found in dataframe"
+        )
+
+    print(f"Available clustering features: {available_features}")
 
     # Handle is_new column specially
     df_clustering = df.copy()
@@ -32,8 +44,6 @@ def prepare_clustering_data(df, numeric_columns):
         df_clustering["is_new_numeric"] = df_clustering["is_new"].astype(int)
         available_features.append("is_new_numeric")
         print("Added 'is_new' as numeric feature for clustering")
-
-    print(f"Available clustering features: {available_features}")
 
     # Apply feature transformations to handle skewed distributions
     print("\nApplying feature transformations...")
@@ -98,7 +108,8 @@ def prepare_clustering_data(df, numeric_columns):
         else:
             analysis_feature_names.append(feature)
 
-    return X_clustering, analysis_feature_names
+    # Return both the clustering data and the processed dataframe for visualization
+    return X_clustering, analysis_feature_names, df_clustering
 
 
 def visualize_feature_transformations(df_original, df_transformed, feature_mapping):
@@ -608,23 +619,20 @@ def main_clustering():
         print("Error: Please run data preprocessing first!")
         return
 
-    # Prepare clustering data with improved transformations
+    # Define the numeric columns to use for clustering analysis
     numeric_columns = ["current_price", "discount", "likes_count"]
-    X_clustering, feature_names = prepare_clustering_data(df, numeric_columns)
 
-    # The prepare_clustering_data function creates a df_clustering with transformed features
-    # We need to extract this for visualization
-    df_transformed_temp = df.copy()
-    if "likes_count" in df.columns:
-        df_transformed_temp["likes_count_log"] = np.log1p(df["likes_count"])
-    if "current_price" in df.columns:
-        df_transformed_temp["current_price_sqrt"] = np.sqrt(df["current_price"])
+    # Prepare clustering data with improved transformations
+    X_clustering, feature_names, df_transformed = prepare_clustering_data(
+        df, numeric_columns
+    )
 
-    # Visualize feature transformations
-    visualize_feature_transformations(df_original, df_transformed_temp, X_clustering)
+    # Visualize feature transformations using the returned transformed dataframe
+    visualize_feature_transformations(df_original, df, df_transformed)
 
     # Apply final standardization to transformed features
     print("\n=== FINAL STANDARDIZATION ===")
+    from sklearn.preprocessing import StandardScaler
 
     scaler = StandardScaler()
     X_clustering_scaled = scaler.fit_transform(X_clustering)
@@ -675,6 +683,7 @@ def main_clustering():
         print(f"Saved {result['algorithm']} results to {filename}")
 
     # Save the scaler for future use
+    import joblib
 
     joblib.dump(scaler, "clustering_scaler.pkl")
     print("Saved StandardScaler to 'clustering_scaler.pkl' for future predictions")
