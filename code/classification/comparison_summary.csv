@@ -1,0 +1,5 @@
+dataset,dataset_name,n_features,K-Nearest Neighbors,Naive Bayes,Random Forest
+dbscan,Original + DBSCAN Clustering,4,0.4272,0.3392,0.5203
+hierarchical,Original + Hierarchical Clustering,4,0.4275,0.3203,0.5152
+kmeans,Original + K-Means Clustering,4,0.4281,0.3327,0.5192
+original,Original Features Only,3,0.4273,0.35,0.4904

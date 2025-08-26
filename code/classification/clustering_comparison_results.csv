@@ -1,0 +1,13 @@
+dataset,dataset_name,model,accuracy,n_features,features,feature_importance
+original,Original Features Only,Random Forest,0.49040267908192436,3,"['current_price', 'discount', 'likes_count']","{'current_price': np.float64(0.48502007054180757), 'discount': np.float64(0.22672699529401735), 'likes_count': np.float64(0.28825293416417497)}"
+original,Original Features Only,K-Nearest Neighbors,0.42726455934003105,3,"['current_price', 'discount', 'likes_count']",
+original,Original Features Only,Naive Bayes,0.3499959160336519,3,"['current_price', 'discount', 'likes_count']",
+kmeans,Original + K-Means Clustering,Random Forest,0.51915380217267,4,"['current_price', 'discount', 'likes_count', 'kmeans_cluster']","{'current_price': np.float64(0.4515310567575597), 'discount': np.float64(0.19047874560374428), 'likes_count': np.float64(0.33529144327534105), 'kmeans_cluster': np.float64(0.022698754363355007)}"
+kmeans,Original + K-Means Clustering,K-Nearest Neighbors,0.4280813526096545,4,"['current_price', 'discount', 'likes_count', 'kmeans_cluster']",
+kmeans,Original + K-Means Clustering,Naive Bayes,0.3326798987176346,4,"['current_price', 'discount', 'likes_count', 'kmeans_cluster']",
+hierarchical,Original + Hierarchical Clustering,Random Forest,0.5151515151515151,4,"['current_price', 'discount', 'likes_count', 'hierarchical_cluster']","{'current_price': np.float64(0.4562277497558914), 'discount': np.float64(0.1835644084983092), 'likes_count': np.float64(0.33475013620256355), 'hierarchical_cluster': np.float64(0.025457705543235825)}"
+hierarchical,Original + Hierarchical Clustering,K-Nearest Neighbors,0.4275095973209181,4,"['current_price', 'discount', 'likes_count', 'hierarchical_cluster']",
+hierarchical,Original + Hierarchical Clustering,Naive Bayes,0.320264641019358,4,"['current_price', 'discount', 'likes_count', 'hierarchical_cluster']",
+dbscan,Original + DBSCAN Clustering,Random Forest,0.5202973127501429,4,"['current_price', 'discount', 'likes_count', 'cluster']","{'current_price': np.float64(0.450176514332492), 'discount': np.float64(0.18702287739069356), 'likes_count': np.float64(0.3350978146552085), 'cluster': np.float64(0.027702793621605944)}"
+dbscan,Original + DBSCAN Clustering,K-Nearest Neighbors,0.4271828800130687,4,"['current_price', 'discount', 'likes_count', 'cluster']",
+dbscan,Original + DBSCAN Clustering,Naive Bayes,0.3392142448746222,4,"['current_price', 'discount', 'likes_count', 'cluster']",
