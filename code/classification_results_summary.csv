@@ -1,4 +1,0 @@
-Algorithm,Accuracy,CV_Score,Best_Params
-K-Nearest Neighbors,0.45454545454545453,0.45367677578223714,{'n_neighbors': 20}
-Naive Bayes,0.3018867924528302,0.30258718889365965,{}
-Random Forest,0.5482316425712652,0.544893921469354,"{'max_depth': None, 'min_samples_split': 10, 'n_estimators': 100}"
