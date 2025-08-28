@@ -1,0 +1,21 @@
+dataset,model_name,accuracy,cv_mean,cv_std,n_features
+original,Decision Tree,0.4998,0.4826,0.0043,3
+original,KNN,0.4273,0.4267,0.0037,3
+original,Naive Bayes,0.35,0.3524,0.0033,3
+original,Random Forest,0.4978,0.4918,0.0038,3
+original,SVM,0.4145,0.4113,0.0052,3
+with_dbscan,Decision Tree,0.5012,0.4815,0.0055,4
+with_dbscan,KNN,0.4272,0.4267,0.0036,4
+with_dbscan,Naive Bayes,0.3392,0.3411,0.0035,4
+with_dbscan,Random Forest,0.5187,0.5134,0.0015,4
+with_dbscan,SVM,0.3934,0.3938,0.0044,4
+with_hierarchical,Decision Tree,0.4955,0.4822,0.0057,4
+with_hierarchical,KNN,0.4275,0.4266,0.0044,4
+with_hierarchical,Naive Bayes,0.3203,0.3218,0.0035,4
+with_hierarchical,Random Forest,0.5174,0.5138,0.0039,4
+with_hierarchical,SVM,0.4023,0.4019,0.0048,4
+with_kmeans,Decision Tree,0.4982,0.4817,0.0055,4
+with_kmeans,KNN,0.4281,0.4274,0.0035,4
+with_kmeans,Naive Bayes,0.3327,0.3362,0.0015,4
+with_kmeans,Random Forest,0.5218,0.5137,0.0017,4
+with_kmeans,SVM,0.4043,0.4032,0.0049,4

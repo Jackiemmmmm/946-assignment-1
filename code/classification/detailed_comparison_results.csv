@@ -1,0 +1,21 @@
+model_name,accuracy,cv_mean,cv_std,predictions,dataset,dataset_description,n_features
+Decision Tree,0.49979580168259413,0.4825711525730195,0.004291081069910879,[5 0 2 ... 2 0 4],original,Original features only,3
+Random Forest,0.49783549783549785,0.49184210145015916,0.0038100463823259162,[5 0 2 ... 2 0 4],original,Original features only,3
+KNN,0.42726455934003105,0.42666062698636315,0.003666114963707171,[5 0 0 ... 2 0 4],original,Original features only,3
+Naive Bayes,0.3499959160336519,0.35239232320566305,0.0032601186369033393,[8 0 0 ... 6 0 3],original,Original features only,3
+SVM,0.4145225843339051,0.4112639120345686,0.005221053946582158,[8 3 0 ... 3 0 4],original,Original features only,3
+Decision Tree,0.4982438944703096,0.4817339177875882,0.005486440554786713,[5 0 2 ... 2 1 4],with_kmeans,Original features + KMEANS clustering,4
+Random Forest,0.5217675406354652,0.5136713219321598,0.0017487352895196853,[5 0 2 ... 2 0 4],with_kmeans,Original features + KMEANS clustering,4
+KNN,0.4280813526096545,0.4274366185378991,0.0034792176261258137,[5 0 0 ... 2 0 4],with_kmeans,Original features + KMEANS clustering,4
+Naive Bayes,0.3326798987176346,0.3361989938105264,0.0014603208647735843,[8 0 0 ... 6 0 3],with_kmeans,Original features + KMEANS clustering,4
+SVM,0.40431266846361186,0.4032387175821932,0.004920585576777824,[8 3 0 ... 6 0 6],with_kmeans,Original features + KMEANS clustering,4
+Decision Tree,0.4954667973535898,0.48218315992445915,0.005689922838796479,[5 0 2 ... 2 0 4],with_hierarchical,Original features + HIERARCHICAL clustering,4
+Random Forest,0.5174385363064609,0.5137938146543659,0.0038786292686364024,[5 0 2 ... 2 0 4],with_hierarchical,Original features + HIERARCHICAL clustering,4
+KNN,0.4275095973209181,0.4266197814853256,0.004387951252978672,[5 0 0 ... 2 0 4],with_hierarchical,Original features + HIERARCHICAL clustering,4
+Naive Bayes,0.320264641019358,0.32176191880455607,0.003510748744286165,[8 0 0 ... 6 0 3],with_hierarchical,Original features + HIERARCHICAL clustering,4
+SVM,0.40227068528955323,0.40187063513482385,0.004836520429377119,[8 3 0 ... 6 0 6],with_hierarchical,Original features + HIERARCHICAL clustering,4
+Decision Tree,0.501184350240954,0.4814888697990238,0.005483332498403532,[5 0 2 ... 2 1 4],with_dbscan,Original features + DBSCAN clustering,4
+Random Forest,0.5187454055378584,0.513446690439699,0.0015097160690572444,[5 0 2 ... 2 0 4],with_dbscan,Original features + DBSCAN clustering,4
+KNN,0.4271828800130687,0.42666062073194794,0.0035987876320534296,[5 0 0 ... 2 0 4],with_dbscan,Original features + DBSCAN clustering,4
+Naive Bayes,0.3392142448746222,0.3410999473273998,0.003518937095432424,[8 0 0 ... 6 0 3],with_dbscan,Original features + DBSCAN clustering,4
+SVM,0.3933676386506575,0.3937637163234921,0.004391078643073286,[8 0 0 ... 6 0 6],with_dbscan,Original features + DBSCAN clustering,4
